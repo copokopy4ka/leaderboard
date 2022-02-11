@@ -1,0 +1,68 @@
+.user-list {
+    background-color: #fff;
+    max-width: 70%;
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px 30px;
+}
+
+.user-list__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 30px;
+}
+
+.user-list__title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #242424;
+}
+
+.user-list__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-list__prev-btn,
+.user-list__next-btn {
+    margin: 0 10px 0 0;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: #242424;
+    transition: all .1s linear;
+}
+
+.user-list__prev-btn:hover,
+.user-list__next-btn:hover {
+    color:rgb(121, 231, 58)
+}
+
+.user-list__new-day-btn,
+.user-list__new-user-btn {
+    font-size: 10px;
+    color: #fff;
+    padding: 7px 20px;
+    border-radius: 5px;
+}
+
+.user-list__new-day-btn {
+    background-color: rgb(247, 140, 0);
+    margin: 0 10px 0 0;
+}
+
+.user-list__new-day-btn:hover {
+    background-color: rgb(219, 124, 0);
+}
+
+.user-list__new-user-btn {
+    background-color: rgb(114, 0, 221);
+}
+
+.user-list__new-user-btn:hover {
+    background-color: rgb(80, 0, 155);
+}

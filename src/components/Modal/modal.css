@@ -1,0 +1,70 @@
+.modal {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: all .2s linear;
+}
+
+.modal__content {
+    border-radius: 25px;
+    width: 50%;
+    height: 50%;
+    background-color: #fff;
+    transform: translateY(-30%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s linear;
+    position: relative;
+}
+
+.modal.active {
+    pointer-events: all;
+    opacity: 1;
+}
+
+.modal.active .modal__content {
+    transform: translateY(0);
+    pointer-events: all;
+    opacity: 1;
+}
+
+.modal__close-btn {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background-color: transparent;
+    top: 20px;
+    right: 20px;
+}
+
+.modal__close-btn:hover {
+    transform: rotate(90deg);
+    transform-origin: center;
+}
+
+.modal__close-btn::before,
+.modal__close-btn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 2px;
+    background-color: #000;
+}
+
+.modal__close-btn::before {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.modal__close-btn::after {
+    transform: translateY(-50%) rotate(-45deg);
+}

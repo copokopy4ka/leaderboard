@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import {v4 as uuid} from 'uuid'
@@ -7,30 +7,19 @@ import Button from "../UI/Button";
 import Modal from "../Modal/Modal";
 import '../../fonts/icons.css'
 import './userList.css'
-import Form from "../Form/Form";
-import { IUserITemType } from "../../types/userTypes";
+import { setUserPlace } from "../../functions";
+import { fetchUsers } from "../../store/actions/userActions";
 
 const UserList = () => {
     const dispatch = useDispatch();
     const {users} = useTypedSelector(state => state.users);
+    const [newUserModalActive, setNewUserModalActive] = useState(false);
     const sortedUsers = users.sort((a, b) => b.score - a.score);
-    const [newUserModalActive, setNewUserModalActive] = useState(false)
 
-    const setUserPlace = (index: number) => {
-        let userPlace: string = '';
+    useEffect(() => {
+        dispatch(fetchUsers())
+    }, [])
 
-        if (index + 1 === 1) {
-            userPlace = `${index + 1}st`
-        } else if (index + 1 === 2) {
-            userPlace = `${index + 1}nd`
-        } else if (index + 1 === 3) {
-            userPlace = `${index + 1}rd`
-        } else {
-            userPlace = `${index + 1}th`
-        }
-
-        return userPlace;
-    }
 
     return (
         <div className="user-list">

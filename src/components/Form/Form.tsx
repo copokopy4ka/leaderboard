@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { ADD_NEW_USER, EDIT_SCORE } from "../../store/actions/userActions";
+import { addNewUser, editUserScore } from "../../store/actions/userActions";
 import Button from "../UI/Button";
 import Input from "../UI/Input";
 import './form.css'
 
 const Form = (props: any) => {
     const dispatch = useDispatch();
-    const [userScore, setUserScore] = useState(0);
+    const [userScore, setUserScore] = useState ('');
     const [userName, setUserName] = useState('');
 
     const setNewUserData = () => {
@@ -19,16 +19,18 @@ const Form = (props: any) => {
                 score: userScore
             }
 
-            dispatch({type: EDIT_SCORE, payload: result});
+            dispatch(editUserScore(result));
         } else {
             result = {
                 name: userName,
                 score: userScore
             }
 
-            dispatch({type: ADD_NEW_USER, payload: result});
+            dispatch(addNewUser(result));
         }
         props.setModalActive(false)
+        setUserName('');
+        setUserScore('')
     }
 
     return (
@@ -38,14 +40,15 @@ const Form = (props: any) => {
                 disabled={props.user ? true : false}
                 className="form__name"
                 type="text"
-                value={props.user ? props.user.name : undefined}
+                value={props.user ? props.user.name : userName}
                 onChange={(e) => setUserName(e.target.value)}
                 placeholder="Name:"
             />
             <Input
                 className="form__score"
+                value={userScore}
                 type='number'
-                onChange={(e) => setUserScore(+e.target.value)}
+                onChange={(e) => setUserScore(e.target.value)}
                 placeholder="Score:"
             />
             <Button type="submit" onClick={() => setNewUserData()} className="btn form__btn">Save</Button>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addNewUser, editUserScore } from "../../store/actions/userActions";
+import { addNewChackedUser, editUserScore } from "../../store/actions/userActions";
 import Button from "../UI/Button";
 import Input from "../UI/Input";
 import './form.css'
@@ -26,7 +26,7 @@ const Form = (props: any) => {
                 score: userScore
             }
 
-            dispatch(addNewUser(result));
+            dispatch(addNewChackedUser(result));
         }
         props.setModalActive(false)
         setUserName('');

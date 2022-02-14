@@ -6,10 +6,22 @@ export const ADD_NEW_USER = 'ADD_NEW_USER';
 export const EDIT_SCORE = 'EDIT_SCORE';
 export const SET_USERS = "SET_USERS";
 
-export const addNewUser = (payload: any) => {
-    return {
-        type: ADD_NEW_USER,
-        payload
+export const addNewChackedUser = (user: any) => {
+    return async (dispatch: Dispatch<any>) => {
+        try {
+            const response = await axios.post('http://coding-test.cube19.io/frontend/v1/process-user',{
+                username: user.name
+            })
+            const newUser = {
+                name: Object.values(response.data),
+                score: user.score
+            }
+            dispatch({type: ADD_NEW_USER, payload: newUser})
+        } catch (err: any) {
+            if (err.response.status === 500) {
+                dispatch(fetchUsers())
+            }
+        }
     }
 }
 

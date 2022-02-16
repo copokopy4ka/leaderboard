@@ -1,0 +1,77 @@
+.user-list-header {
+    background-color: rgb(114, 0, 221);
+    max-width: 70%;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px 30px 30px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 30px;
+    overflow: hidden;
+}
+
+.user-list-header__title {
+    color: #fff;
+    font-size: 12px;
+    margin: 0 0 20px;
+}
+
+.user-list-header__wrapper {
+    display: flex;
+}
+
+.user-list-header__top-user {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    margin: 0 15px 0 0;
+    color: #fff;
+}
+
+.user-list-header__avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    border-radius: 3px;
+}
+
+.user-list-header__score {
+    width: 25px;
+    text-align: center;
+    background-color: #fff;
+    color: rgb(131, 218, 0);
+    position: relative;
+    z-index: 2;
+    border-radius: 3px;
+    transform: translateY(20%);
+}
+
+.user-list-header__name {
+    position: absolute;
+    font-size: 8px;
+    transform: translateY(110%);
+    width: 30px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    border-radius: 5px;
+}
+
+.user-list-header__image-wrapper {
+    max-width: 40%;
+    max-height: 80px;
+}
+
+.user-list-header__image {
+    object-fit: contain;
+    color: #6c63ff;
+    max-width: 100%;
+    height: auto;
+}

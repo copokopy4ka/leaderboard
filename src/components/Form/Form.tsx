@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addNewChackedUser, editUserScore } from "../../store/actions/userActions";
+import { addNewCheckedUser, editUserScore } from "../../store/actions/userActions";
 import Button from "../UI/Button";
 import Input from "../UI/Input";
 import './form.css'
@@ -12,21 +12,20 @@ const Form = (props: any) => {
 
     const setNewUserData = () => {
         let result;
-
         if (props.user) {
             result = {
                 name: props.user.name,
-                score: userScore
+                score: +userScore
             }
 
             dispatch(editUserScore(result));
         } else {
             result = {
                 name: userName,
-                score: userScore
+                score: +userScore
             }
 
-            dispatch(addNewChackedUser(result));
+            dispatch(addNewCheckedUser(result));
         }
         props.setModalActive(false)
         setUserName('');

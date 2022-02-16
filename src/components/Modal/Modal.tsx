@@ -8,7 +8,11 @@ const Modal = ({modalActive, setModalActive, user}: IModalProps) => {
     return (
         <div onClick={() => setModalActive(false)} className={modalActive ? 'modal active' : 'modal'}>
             <Form user={user ? user : null} setModalActive={setModalActive}>
-                <Button type="button" onClick={() => setModalActive(false)} className="btn modal__close-btn"></Button>
+            <Button
+                    type="button"
+                    onClick={() => setModalActive(false)}
+                    className="btn modal__close-btn">
+            </Button>
             </Form>
         </div>
     )

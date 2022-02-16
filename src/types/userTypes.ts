@@ -1,5 +1,8 @@
 export interface IDefaultState {
     users: any[];
+    history: any;
+    dayIndex: number;
+    isCurrentSaved: boolean;
 }
 
 export interface IUserITemType {

@@ -21,7 +21,8 @@ export const userReducer = (state = defaultState, action: IUserAction) => {
             return {...state,
                 dayNumber: 0,
                 isCurrentSaved: false,
-                users: [...action.payload]}
+                users: [...action.payload]
+            }
         case ADD_NEW_USER:
             if (state.isCurrentSaved) {
                 return {...state,
@@ -68,7 +69,10 @@ export const userReducer = (state = defaultState, action: IUserAction) => {
                 })]
             };
             case RESET_HISTORY:
-                return {...state, history: [action.payload, ...state.history]}
+                return {...state,
+                    history: [action.payload, ...state.history],
+                    idCurrentSaved: true
+                }
             case SHOW_HISTORY_DAY_PREV:
                 if (state.isCurrentSaved) {
                     return {...state,

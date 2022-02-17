@@ -49,7 +49,7 @@ export const findPrevScore = (user: any, prevResults: any[]) => {
             color: 'rgb(247, 140, 0)',
             className: 'icon-caret-right',
             scoreDiff: ' ',
-            text: 'No changes'
+            text: 'New user'
         }
     }
     if (prevUser.score < user.score) {

@@ -27,7 +27,7 @@ const UserList = () => {
                 <div className="user-list__actions">
                     <div
                         className={dayIndex === 0 ? 'user-list__day-number hidden' : 'user-list__day-number'}>
-                            {dayIndex > 0 ? `Day ${history.length - dayIndex}`: 'I\'ll be back'}
+                            {dayIndex > 0 ? `Day ${history.length - dayIndex}` : 'I\'ll be back'}
                     </div>
                     <Button
                         onClick={() => {
@@ -54,9 +54,11 @@ const UserList = () => {
                         onClick={() => {
                             if (isCurrentSaved) {
                                 dispatch(fetchUsers())
+                                dispatch({type: SHOW_CURRENT_DAY})
                             } else {
                                 dispatch({type: RESET_HISTORY, payload: users});
                                 dispatch(fetchUsers())
+                                dispatch({type: SHOW_CURRENT_DAY})
                             }
                         }}
                         className="btn user-list__new-day-btn">New day</Button>

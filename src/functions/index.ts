@@ -44,6 +44,14 @@ export const findTopUsers = (allUsers: any[]) => {
 
 export const findPrevScore = (user: any, prevResults: any[]) => {
     const prevUser = prevResults.find((item: IUserITemType) => item.name === user.name);
+    if (!prevUser) {
+        return {
+            color: 'rgb(247, 140, 0)',
+            className: 'icon-caret-right',
+            scoreDiff: ' ',
+            text: 'No changes'
+        }
+    }
     if (prevUser.score < user.score) {
         return {
             color: 'rgb(121, 231, 58)',
